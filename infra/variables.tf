@@ -7,6 +7,6 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  description = "A damn good key"
+  description = "ProjectKey"
   type        = string
 }
