@@ -36,7 +36,7 @@ resource "aws_instance" "flask_ec2" {
               cd /home/ec2-user
               yum install git -y
               git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git flask-app
-              cd flask-app/app
+              cd /app
               docker build -t flask-app .
               docker run -d -p 80:5000 flask-app
               EOF
