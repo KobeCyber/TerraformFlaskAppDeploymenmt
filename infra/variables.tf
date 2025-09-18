@@ -9,5 +9,5 @@ variable "instance_type" {
 variable "key_name" {
   description = "ProjectKey"
   type        = string
-  default     = "my-keypair-name"
+  default     = "ProjectKey"
 }
