@@ -87,7 +87,7 @@ resource "aws_instance" "flask_ec2" {
               cd /home/ec2-user
               yum install git -y
               git clone https://github.com/KobeCyber/TerraformFlaskAppDeploymenmt.git flask-app
-              cd /flask-app/app
+              cd /home/ec2-user/flask-app/app
               docker build -t flask-app .
               docker run -d -p 80:5000 flask-app
               EOF
