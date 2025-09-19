@@ -84,6 +84,12 @@ resource "aws_instance" "flask_ec2" {
               amazon-linux-extras install docker -y
               service docker start
               usermod -aG docker ec2-user
+
+              while (! docker info > /dev/null 2>&1); do
+                echo "Waiting for Docker to start..."
+                sleep 1
+              done
+
               cd /home/ec2-user
               yum install git -y
               git clone https://github.com/KobeCyber/TerraformFlaskAppDeploymenmt.git flask-app
