@@ -1,113 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terraform Flask App Deployment</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 0;
-      text-align: center;
-    }
-    section {
-      padding: 20px;
-      margin: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
-      color: #333;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    ul li {
-      margin: 10px 0;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #333;
-      color: #fff;
-    }
-    .image-container {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .image-container img {
-      width: 80%;
-      max-width: 600px;
-      border-radius: 8px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard101 Fan Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #5c2d91;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #3e1f63;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #5c2d91;
+        }
+
+        .screenshot {
+            width: 100%;
+            max-width: 600px;
+            border: 2px solid #5c2d91;
+            margin-top: 15px;
+        }
+
+        footer {
+            background-color: #5c2d91;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Terraform Flask App Deployment</h1>
-    <p>Automated Infrastructure Provisioning for a Flask Application on AWS</p>
-  </header>
+    <header>
+        <h1>Welcome to the Wizard101 Fan Page</h1>
+        <p>Explore the Spiral and become the ultimate wizard!</p>
+    </header>
 
-  <section>
-    <h2>Project Overview</h2>
-    <p>This project automates the deployment of a Flask web application on AWS using Terraform. The infrastructure includes:</p>
-    <ul>
-      <li>Amazon Elastic Compute Cloud (EC2) instances</li>
-      <li>Amazon Virtual Private Cloud (VPC)</li>
-      <li>Security Groups for access control</li>
-      <li>Elastic Load Balancer (ELB) for traffic distribution</li>
-      <li>Amazon DynamoDB for NoSQL database needs</li>
-      <li>Amazon S3 for storing Terraform state files</li>
-      <li>Amazon CloudWatch for monitoring and logging</li>
-    </ul>
-  </section>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#schools">Magic Schools</a>
+        <a href="#tips">Beginner Tips</a>
+        <a href="#media">Media</a>
+    </nav>
 
-  <section>
-    <h2>Architecture Diagram</h2>
-    <div class="image-container">
-      <img src="https://dev.to/aws-builders/flask-application-deployment-using-aws-ecs-and-aws-dynamodb-with-terraform-45oh" alt="Architecture Diagram">
-      <p>Deployment Architecture: AWS ECS, DynamoDB, S3, CloudWatch</p>
-    </div>
-  </section>
+    <main>
+        <section id="about">
+            <h2>About Wizard101</h2>
+            <p><strong>Wizard101</strong> is a free-to-play MMORPG developed by KingsIsle Entertainment. You play as a young wizard enrolled in the Ravenwood School of Magical Arts, where you learn spells, fight monsters, complete quests, and explore magical worlds in the Spiral.</p>
+        </section>
 
-  <section>
-    <h2>Technologies Used</h2>
-    <ul>
-      <li><strong>Terraform</strong> - Infrastructure as Code (IaC) for provisioning AWS resources</li>
-      <li><strong>Flask</strong> - Python web framework for building the application</li>
-      <li><strong>AWS ECS</strong> - Container orchestration for running the application</li>
-      <li><strong>AWS DynamoDB</strong> - Fully managed NoSQL database service</li>
-      <li><strong>AWS S3</strong> - Object storage service for storing Terraform state files</li>
-      <li><strong>AWS CloudWatch</strong> - Monitoring and logging service for AWS resources</li>
-    </ul>
-  </section>
+        <section id="schools">
+            <h2>Magic Schools</h2>
+            <ul>
+                <li><strong>Fire</strong> - Powerful over time spells with damage over time effects.</li>
+                <li><strong>Ice</strong> - Defensive and tanky, great at absorbing damage.</li>
+                <li><strong>Storm</strong> - High risk, high reward with massive damage.</li>
+                <li><strong>Myth</strong> - Focused on summoning minions and unique strategies.</li>
+                <li><strong>Life</strong> - Healers and support wizards.</li>
+                <li><strong>Death</strong> - Drains enemy health while healing yourself.</li>
+                <li><strong>Balance</strong> - A mix of all schools with powerful utility spells.</li>
+            </ul>
+        </section>
 
-  <section>
-    <h2>Deployment Steps</h2>
-    <ol>
-      <li>Clone the repository: <code>git clone https://github.com/KobeCyber/TerraformFlaskAppDeploymenmt</code></li>
-      <li>Navigate to the project directory: <code>cd TerraformFlaskAppDeploymenmt</code></li>
-      <li>Initialize Terraform: <code>terraform init</code></li>
-      <li>Review the execution plan: <code>terraform plan</code></li>
-      <li>Apply the configuration: <code>terraform apply</code></li>
-      <li>Access the Flask application via the public IP of the EC2 instance on port 5000</li>
-    </ol>
-  </section>
+        <section id="tips">
+            <h2>Beginner Tips</h2>
+            <ul>
+                <li>Choose your school wisely—each has a unique playstyle.</li>
+                <li>Complete side quests for extra experience and rewards.</li>
+                <li>Join a team or play with friends to tackle harder dungeons.</li>
+                <li>Use your training points wisely when learning secondary spells.</li>
+                <li>Keep your gear updated for better stats and survivability.</li>
+            </ul>
+        </section>
 
-  <footer>
-    <p>&copy; 2025 KobeCyber. All rights reserved.</p>
-  </footer>
+        <section id="media">
+            <h2>Game Screenshot</h2>
+            <img class="screenshot" src="https://cdn.wizard101.com/sites/default/files/Wizard101-SpiralScene.png" alt="Wizard101 Game Screenshot">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Wizard101 Fan Page | Not affiliated with KingsIsle Entertainment</p>
+    </footer>
 
 </body>
 </html>
