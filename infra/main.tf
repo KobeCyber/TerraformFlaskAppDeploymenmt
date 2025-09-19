@@ -1,10 +1,59 @@
-provider "aws" {
-  region = var.region
+# VPC
+resource "aws_vpc" "flask_vpc" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "flask-vpc"
+  }
 }
 
+# Internet Gateway
+resource "aws_internet_gateway" "flask_igw" {
+  vpc_id = aws_vpc.flask_vpc.id
+
+  tags = {
+    Name = "flask-igw"
+  }
+}
+
+# Public Subnet
+resource "aws_subnet" "flask_subnet" {
+  vpc_id                  = aws_vpc.flask_vpc.id
+  cidr_block              = "10.0.1.0/24"
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "flask-subnet"
+  }
+}
+
+# Route Table
+resource "aws_route_table" "flask_rt" {
+  vpc_id = aws_vpc.flask_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.flask_igw.id
+  }
+
+  tags = {
+    Name = "flask-rt"
+  }
+}
+
+# Route Table Association
+resource "aws_route_table_association" "flask_rta" {
+  subnet_id      = aws_subnet.flask_subnet.id
+  route_table_id = aws_route_table.flask_rt.id
+}
+
+# Security Group (attach to new VPC)
 resource "aws_security_group" "flask_sg" {
   name        = "flask_sg"
   description = "Allow HTTP traffic"
+  vpc_id      = aws_vpc.flask_vpc.id
 
   ingress {
     from_port   = 80
@@ -21,10 +70,12 @@ resource "aws_security_group" "flask_sg" {
   }
 }
 
+# EC2 Instance (in new subnet + SG)
 resource "aws_instance" "flask_ec2" {
   ami                    = "ami-0c02fb55956c7d316" # Amazon Linux 2 AMI
   instance_type          = var.instance_type
   key_name               = var.key_name
+  subnet_id              = aws_subnet.flask_subnet.id
   vpc_security_group_ids = [aws_security_group.flask_sg.id]
 
   user_data = <<-EOF
