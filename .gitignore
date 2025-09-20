@@ -1,0 +1,28 @@
+# Local SSH keys
+*.pem
+*.key
+*.pub
+*.ppk
+*.der
+
+# Terraform state
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+.terraform/
+.terraform.lock.hcl
+
+# Sensitive files
+*.tfvars
+*.tfvars.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE/editor junk
+.vscode/
+.idea/
+*.swp
